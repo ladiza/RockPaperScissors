@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock, paper, scissors.</title>
+    </head>
+    
+    <body>
+        <script>
+            function computerPlay() {
+                
+                let num = Math.random() * 9;
+                let computerSelection = null;
+                
+                if (num < 3) {
+                    return (computerSelection = 'Rock')
+                } else if (num < 6) {
+                    return (computerSelection = 'Paper')
+                } else {
+                    return (computerSelection = 'Scissors')
+                }
+            }
+            
+            
+            
+            
+            function playRound(playerSelection, computerSelection) {
+                
+                let playerChoice = playerSelection.toUpperCase();
+                let computerChoice = computerSelection.toUpperCase();
+                let result = null;
+
+                if (playerChoice == computerChoice) {
+                    return (result = "It's a draw!")
+                } else if (playerChoice == 'ROCK' && computerChoice =='PAPER') {
+                    return (result = "You lose! " + computerChoice + " beats " + playerChoice)
+                } else if (playerChoice == 'SCISSORS' && computerChoice == 'ROCK') {
+                    return (result = "You lose! " + computerChoice + " beats " + playerChoice)
+                } else if (playerChoice == 'PAPER' && computerChoice == 'SCISSORS') {
+                    return (result = "You lose! " + computerChoice + " beats " + playerChoice)
+                } else {
+                    return (result = "You win! " + playerChoice + " beats " + computerChoice)
+                }
+            }
+
+            function game() {
+                let computerScore = null;
+                let playerScore = null;
+                               
+                for(let i = 0; i < 5; i++) {
+                    let playerSelection = window.prompt('Rock, paper or scissors?');
+                    let computerSelection = computerPlay();
+                    let result = playRound(playerSelection, computerSelection);
+                    console.log(result)
+
+                    let indicator = result.charAt(4);
+
+                    if (indicator == 'w') {
+                        playerScore++;
+                    } else if (indicator == 'l') {
+                        computerScore++;
+                    }
+                }
+
+                let gameEvaluation = (playerScore > computerScore)? 'You won!'
+                                    :(playerScore < computerScore)? 'You lost!'
+                                    : 'It is a draw';
+
+                console.log(gameEvaluation)
+                
+            }
+        </script>
+
+    </body>
+</html>
