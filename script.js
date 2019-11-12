@@ -1,6 +1,6 @@
 var playerPoints = 0;
 var computerPoints = 0;
-document.getElementById("final-evaluation").innerHTML = '';
+document.getElementById("final-evaluation").textContent = '';
 
 function computerPlay() {
 
@@ -51,14 +51,14 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function evaluate(result) {
-  document.getElementById("result-text").innerHTML = result;
-  document.getElementById("player-score").innerHTML = playerPoints;
-  document.getElementById("computer-score").innerHTML = computerPoints;
+  document.getElementById("result-text").textContent = result;
+  document.getElementById("player-score").textContent = playerPoints;
+  document.getElementById("computer-score").textContent= computerPoints;
   if (playerPoints == 5) {
-      document.getElementById("final-evaluation").innerHTML = 'You won the game!';
+      document.getElementById("final-evaluation").textContent = 'You won the game!';
     } else if (computerPoints == 5) {
-      document.getElementById("final-evaluation").innerHTML = 'You lost the game!';
+      document.getElementById("final-evaluation").textContent = 'You lost the game!';
     } else {
-      document.getElementById("final-evaluation").innerHTML = '';
+      document.getElementById("final-evaluation").textContent = '';
     }
 }
